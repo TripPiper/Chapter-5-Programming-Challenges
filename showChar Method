@@ -1,0 +1,15 @@
+public class showChar {
+    
+
+       
+       public static void main(String args[])
+        {
+            String myString="Trip Piper is the bomb at coding .";
+            showChar(myString,5);
+        }
+        static void showChar(String string, int charPosition)
+        {
+            char letter=string.charAt(charPosition);
+            System.out.println("Character at position "+ charPosition +" : "+letter);
+        }
+    }
