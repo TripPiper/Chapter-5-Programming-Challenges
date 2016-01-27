@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author Me
+ */
+public class retailPriceCalculator {
+
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        double wholeCost = 0.0; //hold user's input for whole sale cost
+        double mUp = 0.0;   //  hold user's input for mark up
+        // Gets wholesale cost form user
+        System.out.println("Enter wholesale price");
+        wholeCost = input.nextDouble();
+
+        // Gets Mark up from user
+        System.out.println("Enter mark up .");
+        mUp = input.nextDouble();
+        // Call to the calculate Retail method
+        calculateRetail(wholeCost, mUp);
+    }
+
+    public static double calculateRetail(double wC, double markUp) {
+        double result1 = (wC + wC * (markUp / 100));
+        System.out.println(result1);
+        return result1;
+    }
+
+}
