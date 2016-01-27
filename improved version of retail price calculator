@@ -1,0 +1,26 @@
+public class retailPriceCalculator {
+
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        double wholeCost = 0.0; //hold user's input for whole sale cost
+        double mUp = 0.0;   //  hold user's input for mark up
+        // Gets wholesale cost form user
+        System.out.println("Enter wholesale price");
+        wholeCost = input.nextDouble();
+
+        // Gets Mark up from user
+        System.out.println("Enter mark up percentage as a whole number .");
+        mUp = input.nextDouble();
+        // Call to the calculate Retail method
+        double price = calculateRetail(wholeCost, mUp);
+        // The new value of price is result1. Will print price
+        System.out.println( price);
+    }
+
+    public static double calculateRetail(double wC, double markUp) {
+        double result1 = (wC + wC * (markUp / 100));
+        //System.out.println(result1);
+        return result1;
+    }
+
+}
