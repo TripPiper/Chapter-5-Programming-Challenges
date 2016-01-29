@@ -1,0 +1,87 @@
+
+package chapter5methods;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+
+/**
+ *
+ * @author Tutor
+ */
+public class conversionProgram {
+
+    public static void main(String[] args) {
+
+    
+     
+        String inputChoice; // Hold the input for meters
+        double meters ;      // Hold the converted from meters string to meters double.
+        int choice;       // Holds the integer for the user's choice input
+        
+          //Gets meters from user
+        String input1 = JOptionPane.showInputDialog(null, " Enter the distance in meters :");
+        meters = Double.parseDouble(input1); // Convert from string to double
+
+        // loop for conversion and selected choices
+        do {
+            menu(); //call for menu method
+            inputChoice = JOptionPane.showInputDialog(null, " Enter your choice ");
+            choice = Integer.parseInt(inputChoice);
+            switch (choice) {
+                case 1:
+                    showKilometers(meters);
+
+                    break;
+                case 2:
+                    showInches(meters);
+                    ;
+
+                    break;
+
+                case 3:
+                    showFeet(meters);
+
+                    break;
+
+                case 4:
+                    JOptionPane.showMessageDialog(null, "Good Bye!");
+                    break;
+
+                default:
+
+                    JOptionPane.showMessageDialog(null, " That is  invalid ");
+            }
+        } while (choice == 1 || choice == 2 || choice == 3 || choice != 4);
+
+    }
+
+
+    public static void showKilometers(double meters) {
+        DecimalFormat formatter = new DecimalFormat("#00.00");
+        double kilo1 = (meters * .001);
+        JOptionPane.showMessageDialog(null, meters + " meters is " + formatter.format(kilo1) + " kilometers. ");
+
+    }
+
+    private static void showInches(double meters) {
+        DecimalFormat formatter = new DecimalFormat("#00.00");
+        double inches = (meters * 39.37);
+        JOptionPane.showMessageDialog(null, meters + " meters is " + formatter.format(inches) + " inches. ");
+    }
+
+    private static void showFeet(double meters) {
+        DecimalFormat formatter = new DecimalFormat("#00.00");
+        double feet = (meters * 3.281);
+        JOptionPane.showMessageDialog(null, meters + " meters is " + formatter.format(feet) + " feet. ");
+    }
+
+    private static void menu() {
+        JOptionPane.showMessageDialog(null,
+                " 1. Convert to kilometers :" + "\n\n"
+                + " 2. Convert to inches :" + "\n\n"
+                + " 3. Convert to feet :" + "\n\n"
+                + " 4. Quit the program :" + "\n\n");
+    }
+
+}
