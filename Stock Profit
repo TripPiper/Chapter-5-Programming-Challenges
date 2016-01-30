@@ -1,0 +1,87 @@
+
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author Tutor
+ */
+public class stockProfit {
+
+    public static void main(String[] args) {
+        double ns, sp, sc, pp, pc;
+        double pOrl;
+
+        ns = numberOfSales();
+        sp = salesPrice();
+        sc = salesCommission();
+        pp = purchasePrice();
+        pc = purchaseCommission();
+        pOrl = profitOrLoss(ns, sp, pp, pc, sc);
+        displayResults(pOrl);
+
+    }
+
+    private static double numberOfSales() {
+        String inputT;
+        double numberOfSales1;
+        inputT = JOptionPane.showInputDialog("Enter the number of shares.");
+        numberOfSales1 = Double.parseDouble(inputT);
+        return numberOfSales1;
+    }
+
+    private static double salesPrice() {
+        String inputU;
+        double salePrice;
+        inputU = JOptionPane.showInputDialog("Enter the sales price.");
+        salePrice = Double.parseDouble(inputU);
+        return salePrice;
+    }
+
+    private static double salesCommission() {
+        String inputW;
+        double salePrice;
+        inputW = JOptionPane.showInputDialog("Enter the sales Commission");
+        salePrice = Double.parseDouble(inputW);
+        return salePrice;
+    }
+
+    private static double purchasePrice() {
+        String inputV;
+        double purchasePrice;
+        inputV = JOptionPane.showInputDialog("Enter the the purchase price");
+        purchasePrice = Double.parseDouble(inputV);
+        return purchasePrice;
+    }
+
+    private static double purchaseCommission() {
+        String inputX;
+        double purchaseComm;
+        inputX = JOptionPane.showInputDialog("Enter the purchase Commission");
+        purchaseComm = Double.parseDouble(inputX);
+        return purchaseComm;
+    }
+
+    private static double profitOrLoss(double ns, double sp, double pp, double pc, double sc) {
+        double profitOrLoss1;
+        profitOrLoss1 = (((ns * sp) - sc) - ((ns * pp) + pc));
+        return profitOrLoss1;
+    }
+
+    private static void displayResults(double pOl) {
+    DecimalFormat formatter = new DecimalFormat("$##,#00.00");
+        if (pOl < 0) {
+            JOptionPane.showMessageDialog(null, "Your loss is " + formatter.format(pOl));
+        } else {
+            JOptionPane.showMessageDialog(null, "Your profit is " + formatter.format(pOl));
+        }
+
+        System.out.println(formatter.format(pOl));
+        System.exit(0);
+    }
+}
