@@ -1,0 +1,37 @@
+import javax.swing.JOptionPane;
+
+public class distanceTRavelefModification {
+
+    public static void main(String[] args) {
+
+        double  speed; // variable speed and the total for distance
+        int time, x;    //holds user input for time and the x is used in the for loop
+        String inputT, inputS; // holds user input for time and speed
+
+        // ask user for travel time
+        inputT = JOptionPane.showInputDialog("Enter the hours is took to reach your destination.");
+        time = Integer.parseInt(inputT);
+        // ask user for speed
+        inputS = JOptionPane.showInputDialog("Enter the speed you were going in MPH .");
+        speed = Double.parseDouble(inputS);
+        // Headings for the table
+        System.out.println("Hours   Speed");
+        System.out.println("____________________");
+
+         distance(speed, time);
+    }
+
+    public static double distance(double speed1, double time1) {
+        int x;
+        double distance1 = 0;
+        // loop to calculate the time
+        for (x = 1; x <= time1; x++) 
+        {
+            distance1 = (x * speed1);
+            System.out.println(x + "\t\t" + distance1);
+
+        }
+      
+        return distance1;
+    }
+    }
