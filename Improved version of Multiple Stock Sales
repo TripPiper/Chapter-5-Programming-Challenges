@@ -1,3 +1,4 @@
+
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
@@ -14,26 +15,28 @@ public class stockProfit {
     public static void main(String[] args) {
         // Calls to methods
         ns = numberOfShares();
-        System.out.print(" tester for ->i is :"
-                + i); // tester for i
-        System.out.println("tester for i++"
-                + (i += i)); //tester for counter int i++
-        System.out.println(" tester for -> shares var ns "
-                + ns); //tester for ns
+       // System.out.print(" tester for ->i is :"
+               // + i); // tester for i
+       // System.out.println("tester for i++"
+               // + (i += i)); //tester for counter int i++
+        //System.out.println(" tester for -> shares var ns "
+               // + ns); //tester for ns
         sp = salesPrice();
-        System.out.println("tester for sales price num var sp -> : "
-                + i + sp); //tester sp
+        //System.out.println("tester for sales price num var sp -> : "
+              //  + i + sp); //tester sp
         sc = salesCommission();
-        System.out.println(" tester for sales commission num var sc ->"
-                + i + sc); //tester sc
+       // System.out.println(" tester for sales commission num var sc ->"
+              //  + i + sc); //tester sc
         pp = purchasePrice();
-        System.out.println(" tester for purchase price tester num  PP -> "
-                + i + pp); //tester pp
+       // System.out.println(" tester for purchase price tester num  PP -> "
+               // + i + pp); //tester pp
         pc = purchaseCommission();
-        System.out.println("tester for purchase commission num pc -> : "
-                + i + pc); //tester pc
+       // System.out.println("tester for purchase commission num pc -> : "
+              //  + i + pc); //tester pc
         // This call gives the profit or loss
         pOrl = profitOrLoss(ns, sp, pp, pc, sc);
+        //System.out.println("tester for pOrl -> : "
+              //  + i + pOrl); //tester pc
         // This call displays the profit or loss
         displayResults(pOrl);
     }
@@ -62,8 +65,8 @@ public class stockProfit {
         String inputU;
 
         for (i = 0; i < ns; i++) {
-            System.out.print(" Tester " + i + " and "); //tester for  int i
-            System.out.println(i += i); //tester for counter int i++
+            //System.out.print(" Tester " + i + " and "); //tester for  int i
+            //System.out.println(i += i); //tester for counter int i++
             // Get user's input for sale price
             inputU = JOptionPane.showInputDialog("Enter the "
                     + "sales price for share number : " + (i + 1));
