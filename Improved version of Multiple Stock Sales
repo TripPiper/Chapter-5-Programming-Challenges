@@ -1,4 +1,5 @@
 
+
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
@@ -12,31 +13,24 @@ public class stockProfit {
             purchasePrice, purchaseComm;
     public static double numberOfShares, profitOrLoss1;
 
+    
+
+
     public static void main(String[] args) {
         // Calls to methods
         ns = numberOfShares();
-       // System.out.print(" tester for ->i is :"
-               // + i); // tester for i
-       // System.out.println("tester for i++"
-               // + (i += i)); //tester for counter int i++
-        //System.out.println(" tester for -> shares var ns "
-               // + ns); //tester for ns
-        sp = salesPrice();
-        //System.out.println("tester for sales price num var sp -> : "
-              //  + i + sp); //tester sp
-        sc = salesCommission();
-       // System.out.println(" tester for sales commission num var sc ->"
-              //  + i + sc); //tester sc
-        pp = purchasePrice();
-       // System.out.println(" tester for purchase price tester num  PP -> "
-               // + i + pp); //tester pp
-        pc = purchaseCommission();
-       // System.out.println("tester for purchase commission num pc -> : "
-              //  + i + pc); //tester pc
+        //System.out.println("i is :" + i); // tester for i
+        //System.out.println("shares" + ns); tester for ns
+        sp = salesPrice(ns);
+        //System.out.println("sales price 2 " + sp); //tester sp
+        sc = salesCommission(ns);
+        //System.out.println("sales price 2 " + sc); //tester sc
+        pp = purchasePrice(ns);
+        // System.out.println("sales price 2 " + pp); //tester pp
+        pc = purchaseCommission(ns);
+        //System.out.println("sales price 2 " + pc); //tester pc
         // This call gives the profit or loss
         pOrl = profitOrLoss(ns, sp, pp, pc, sc);
-        //System.out.println("tester for pOrl -> : "
-              //  + i + pOrl); //tester pc
         // This call displays the profit or loss
         displayResults(pOrl);
     }
@@ -49,6 +43,7 @@ public class stockProfit {
      */
     public static double numberOfShares() {
         String inputT;
+
         inputT = JOptionPane.showInputDialog("Enter the number of shares.");
         numberOfShares = Double.parseDouble(inputT);
         return numberOfShares;
@@ -58,42 +53,34 @@ public class stockProfit {
      * The salesPrice method gets the sales prices of the shares and returns the
      * total price.
      *
-     * *@return1
      *
+     * @param sale
+     * @return salesSPrice
      */
-    public static double salesPrice() {
+    public static double salesPrice(double    salesSPrice) {
         String inputU;
 
         for (i = 0; i < ns; i++) {
-            //System.out.print(" Tester " + i + " and "); //tester for  int i
-            //System.out.println(i += i); //tester for counter int i++
-            // Get user's input for sale price
-            inputU = JOptionPane.showInputDialog("Enter the "
-                    + "sales price for share number : " + (i + 1));
-            //Counter
+            inputU = JOptionPane.showInputDialog("Enter the sales price for shares.");
             salesSPrice += Double.parseDouble(inputU);
         }
-        //System.out.println("sales price " + salesSPrice); //tester
+        //System.out.println("sales price " + salesSPrice); //tester for salesSPrice
         return salesSPrice;
     }
 
     /**
-     * The salesCommission method gets the sales commission of the shares and
-     * returns the total commission.
+     * The salesCommission method gets the sales commission of the shares and .
      *
+     * @return returns the total commission
      */
-    public static double salesCommission() {
+    public static double salesCommission(double saleCPrice) {
         String inputW;
 
         for (i = 0; i < ns; i++) {
-            // System.out.print(" Tester "+i + " and " ); //tester for  int i
-            // System.out.println(i+=i); //tester for counter int i++
-            inputW = JOptionPane.showInputDialog("Enter the sales "
-                    + "Commission for share number : " + (i + 1));
-            //Counter
+            inputW = JOptionPane.showInputDialog("Enter the sales Commission");
             saleCPrice += Double.parseDouble(inputW);
         }
-        //System.out.println("sales price " + saleCPrice); //tester for sale C price
+        //System.out.println("sales price " + saleCPrice); //tester saleCPrice
         return saleCPrice;
     }
 
@@ -103,18 +90,14 @@ public class stockProfit {
      *
      * @return
      */
-    public static double purchasePrice() {
+    public static double purchasePrice(double purchasePrice) {
         String inputV;
 
         for (i = 0; i < ns; i++) {
-            // System.out.print(" Tester "+i + " and " ); //tester for  int i
-            //System.out.println(i+=i); //tester for counter int i++
-            inputV = JOptionPane.showInputDialog("Enter the the purchase price "
-                    + "for share number : " + (i + 1));
-            //Counter
+            inputV = JOptionPane.showInputDialog("Enter the the purchase price");
             purchasePrice += Double.parseDouble(inputV);
         }
-        //System.out.println("sales price " + purchasePrice); //tester
+        //System.out.println("sales price " + purchasePrice); //tester purchasePrice
 
         return purchasePrice;
     }
@@ -125,20 +108,14 @@ public class stockProfit {
      *
      * @return
      */
-    public static double purchaseCommission() {
+    public static double purchaseCommission(double   purchaseComm) {
         String inputX;
 
         for (i = 0; i < ns; i++) {
-            // System.out.print(" Tester "+i + " and " ); //tester for  int i
-            // System.out.println(i+=i); //tester for counter int i++
-
-            //Gets input for purchase commission
-            inputX = JOptionPane.showInputDialog("Enter the purchase"
-                    + " Commission for share number : " + (i + 1));
-            //Counter for purchase commission
+            inputX = JOptionPane.showInputDialog("Enter the purchase Commission");
             purchaseComm += Double.parseDouble(inputX);
         }
-        // System.out.println("sales price " + purchaseComm); //tester
+        //System.out.println("sales price " + purchaseComm); //tester  purchaseComm
 
         return purchaseComm;
     }
@@ -155,21 +132,15 @@ public class stockProfit {
      */
     public static double profitOrLoss(double ns, double sp,
             double pp, double pc, double sc) {
-        /**
-         * System.out.println("ns = " + ns + " sp =" + sp + " pp = " + pp + "pc
-         * = " + pc + "sc =" + sc); //tester for profit or loss' parameters
-         */
 
         profitOrLoss1 = (((ns * sp) - sc) - ((ns * pp) + pc));
         return profitOrLoss1;
-
     }
+
+    
     // The display methods displys the profit or loss
-
     public static void displayResults(double pOl) {
-        //System.out.println(" pol = " + pOl); //tester for display Results parameters
-
-        DecimalFormat formatter = new DecimalFormat("$#,#0.00");
+        DecimalFormat formatter = new DecimalFormat("$##,#0.00");
         if (pOl < 0) {
             JOptionPane.showMessageDialog(null, "Your loss is "
                     + formatter.format(pOl));
@@ -177,9 +148,8 @@ public class stockProfit {
             JOptionPane.showMessageDialog(null, "Your profit is "
                     + formatter.format(pOl));
         }
-        //System.out.println(formatter.format(pOl)); tester for decimal formatted pOL
+        //System.out.println(formatter.format(pOl)); tester for pOL
         // terminates program
         System.exit(0);
     }
-
 }
