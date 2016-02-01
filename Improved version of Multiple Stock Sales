@@ -1,155 +1,177 @@
 
-
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public class stockProfit {
 
-    public static double ns;
-    public static double sp = 0, sc = 0, pp = 0, pc = 0;
-    public static double pOrl;
-    public static int i = 0;
-    public static double salesSPrice, saleCPrice,
-            purchasePrice, purchaseComm;
-    public static double numberOfShares, profitOrLoss1;
+public static double ns;
+public static double sp = 0, sc = 0, pp = 0, pc = 0;
+public static double pOrl;
+public static int i = 0;
+public static double salesSPrice, saleCPrice,
+purchasePrice, purchaseComm;
+public static double numberOfShares, profitOrLoss1;
 
-    
+;
 
+public static void main(String[] args) {
+// Calls to methods
+ns = numberOfShares();
+//System.out.println("i is :" + i); // tester for i
+//System.out.println("shares" + ns); tester for ns
+sp = salesPrice();
+//System.out.println("sales price 2 " + sp); //tester sp
+sc = salesCommission();
+//System.out.println("sales price 2 " + sc); //tester sc
+pp = purchasePrice();
+// System.out.println("sales price 2 " + pp); //tester pp
+pc = purchaseCommission();
+//System.out.println("sales price 2 " + pc); //tester pc
+// This call gives the profit or loss
+pOrl = profitOrLoss(ns, sp, pp, pc, sc);
+// This call displays the profit or loss
+displayResults(pOrl);
+}
 
-    public static void main(String[] args) {
-        // Calls to methods
-        ns = numberOfShares();
-        //System.out.println("i is :" + i); // tester for i
-        //System.out.println("shares" + ns); tester for ns
-        sp = salesPrice(ns);
-        //System.out.println("sales price 2 " + sp); //tester sp
-        sc = salesCommission(ns);
-        //System.out.println("sales price 2 " + sc); //tester sc
-        pp = purchasePrice(ns);
-        // System.out.println("sales price 2 " + pp); //tester pp
-        pc = purchaseCommission(ns);
-        //System.out.println("sales price 2 " + pc); //tester pc
-        // This call gives the profit or loss
-        pOrl = profitOrLoss(ns, sp, pp, pc, sc);
-        // This call displays the profit or loss
-        displayResults(pOrl);
-    }
+/**
+* *The numberOfShares methods gets the number of shares from the user
+* returns number of shares entered by user
+*
+* @return
+*/
+public static double numberOfShares() {
+String inputT;
 
-    /**
-     * *The numberOfShares methods gets the number of shares from the user
-     * returns number of shares entered by user
-     *
-     * @return
-     */
-    public static double numberOfShares() {
-        String inputT;
+inputT = JOptionPane.showInputDialog("Enter the number of shares.");
+numberOfShares = Double.parseDouble(inputT);
+return numberOfShares;
+}
 
-        inputT = JOptionPane.showInputDialog("Enter the number of shares.");
-        numberOfShares = Double.parseDouble(inputT);
-        return numberOfShares;
-    }
+/**
+* The salesPrice method gets the sales prices of the shares and returns the
+* total price.
+*
+* *@return1
+*
+*/
+public static double salesPrice() {
+String inputU;
 
-    /**
-     * The salesPrice method gets the sales prices of the shares and returns the
-     * total price.
-     *
-     *
-     * @param sale
-     * @return salesSPrice
-     */
-    public static double salesPrice(double    salesSPrice) {
-        String inputU;
+for (i = 0; i < ns; i++) {
+System.out.print(" Tester "+i + " and " ); //tester for int i
+System.out.println(i+=i); //tester for counter int i++
+// Get user's input for sale price
+inputU = JOptionPane.showInputDialog("Enter the "
++ "sales price for share number : " + (i + 1));
+//Counter
+salesSPrice += Double.parseDouble(inputU);
+}
+//System.out.println("sales price " + salesSPrice); //tester
+return salesSPrice;
+}
 
-        for (i = 0; i < ns; i++) {
-            inputU = JOptionPane.showInputDialog("Enter the sales price for shares.");
-            salesSPrice += Double.parseDouble(inputU);
-        }
-        //System.out.println("sales price " + salesSPrice); //tester for salesSPrice
-        return salesSPrice;
-    }
+/**
+* The salesCommission method gets the sales commission of the shares and
+* returns the total commission.
+*
+*/
+public static double salesCommission() {
+String inputW;
 
-    /**
-     * The salesCommission method gets the sales commission of the shares and .
-     *
-     * @return returns the total commission
-     */
-    public static double salesCommission(double saleCPrice) {
-        String inputW;
+for (i = 0; i < ns; i++) {
+// System.out.print(" Tester "+i + " and " ); //tester for int i
+// System.out.println(i+=i); //tester for counter int i++
+inputW = JOptionPane.showInputDialog("Enter the sales "
++ "Commission for share number : " + (i + 1));
+//Counter
+saleCPrice += Double.parseDouble(inputW);
+}
+//System.out.println("sales price " + saleCPrice); //tester for sale C price
+return saleCPrice;
+}
 
-        for (i = 0; i < ns; i++) {
-            inputW = JOptionPane.showInputDialog("Enter the sales Commission");
-            saleCPrice += Double.parseDouble(inputW);
-        }
-        //System.out.println("sales price " + saleCPrice); //tester saleCPrice
-        return saleCPrice;
-    }
+/**
+* The purchasePrice method gets the purchase Price of the shares and
+* returns the total purchase Price.
+*
+* @return
+*/
+public static double purchasePrice() {
+String inputV;
 
-    /**
-     * The purchasePrice method gets the purchase Price of the shares and
-     * returns the total purchase Price.
-     *
-     * @return
-     */
-    public static double purchasePrice(double purchasePrice) {
-        String inputV;
+for (i = 0; i < ns; i++) {
+// System.out.print(" Tester "+i + " and " ); //tester for int i
+//System.out.println(i+=i); //tester for counter int i++
+inputV = JOptionPane.showInputDialog("Enter the the purchase price "
++ "for share number : " + (i + 1));
+//Counter
+purchasePrice += Double.parseDouble(inputV);
+}
+//System.out.println("sales price " + purchasePrice); //tester
 
-        for (i = 0; i < ns; i++) {
-            inputV = JOptionPane.showInputDialog("Enter the the purchase price");
-            purchasePrice += Double.parseDouble(inputV);
-        }
-        //System.out.println("sales price " + purchasePrice); //tester purchasePrice
+return purchasePrice;
+}
 
-        return purchasePrice;
-    }
+/**
+* The purchase Commission method gets the purchase Commission of the shares
+* and returns the total purchase Commission.
+*
+* @return
+*/
+public static double purchaseCommission() {
+String inputX;
 
-    /**
-     * The purchase Commission method gets the purchase Commission of the shares
-     * and returns the total purchase Commission.
-     *
-     * @return
-     */
-    public static double purchaseCommission(double   purchaseComm) {
-        String inputX;
+for (i = 0; i < ns; i++) {
+// System.out.print(" Tester "+i + " and " ); //tester for int i
+// System.out.println(i+=i); //tester for counter int i++
 
-        for (i = 0; i < ns; i++) {
-            inputX = JOptionPane.showInputDialog("Enter the purchase Commission");
-            purchaseComm += Double.parseDouble(inputX);
-        }
-        //System.out.println("sales price " + purchaseComm); //tester  purchaseComm
+//Gets input for purchase commission
+inputX = JOptionPane.showInputDialog("Enter the purchase"
++ " Commission for share number : " + (i + 1));
+//Counter for purchase commission
+purchaseComm += Double.parseDouble(inputX);
+}
+// System.out.println("sales price " + purchaseComm); //tester
 
-        return purchaseComm;
-    }
+return purchaseComm;
+}
 
-    /**
-     * @param ns The profit or loss methods calculates the profit or loss and
-     * return the profit or loss
-     * @param sp
-     * @param pp
-     * @param pc
-     * @param sc
-     *
-     * @return profit or loss
-     */
-    public static double profitOrLoss(double ns, double sp,
-            double pp, double pc, double sc) {
+/**
+* @param ns The profit or loss methods calculates the profit or loss and
+* return the profit or loss
+* @param sp
+* @param pp
+* @param pc
+* @param sc
+*
+* @return profit or loss
+*/
+public static double profitOrLoss(double ns, double sp,
+double pp, double pc, double sc) {
+/**System.out.println("ns = " + ns + " sp =" + sp
++ " pp = " + pp + "pc = "
++ pc + "sc =" + sc); //tester for profit or loss' parameters */
 
-        profitOrLoss1 = (((ns * sp) - sc) - ((ns * pp) + pc));
-        return profitOrLoss1;
-    }
+profitOrLoss1 = (((ns * sp) - sc) - ((ns * pp) + pc));
+return profitOrLoss1;
 
-    
-    // The display methods displys the profit or loss
-    public static void displayResults(double pOl) {
-        DecimalFormat formatter = new DecimalFormat("$##,#0.00");
-        if (pOl < 0) {
-            JOptionPane.showMessageDialog(null, "Your loss is "
-                    + formatter.format(pOl));
-        } else {
-            JOptionPane.showMessageDialog(null, "Your profit is "
-                    + formatter.format(pOl));
-        }
-        //System.out.println(formatter.format(pOl)); tester for pOL
-        // terminates program
-        System.exit(0);
-    }
+}
+// The display methods displys the profit or loss
+
+public static void displayResults(double pOl) {
+//System.out.println(" pol = " + pOl); //tester for display Results parameters
+
+DecimalFormat formatter = new DecimalFormat("$#,#0.00");
+if (pOl < 0) {
+JOptionPane.showMessageDialog(null, "Your loss is "
++ formatter.format(pOl));
+} else {
+JOptionPane.showMessageDialog(null, "Your profit is "
++ formatter.format(pOl));
+}
+//System.out.println(formatter.format(pOl)); tester for decimal formatted pOL
+// terminates program
+System.exit(0);
+}
+
 }
