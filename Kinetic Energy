@@ -1,0 +1,33 @@
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Tutor
+ */
+public class kineticEnergy {
+
+    public static double mass1, velocity1, kineticEnergy, m1, v1, kE1;
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(" Enter the mass .");
+        m1 = input.nextDouble();
+        System.out.println(" Enter the velocity.");
+        v1 = input.nextDouble();
+        kE1 = kineticEnergy(m1, v1);
+        System.out.println(" m1 is " + m1 + " v1 is " + v1 + " kE1 is " + kE1); // Tester for m1,v1 and ke1
+
+    }
+
+    public static double kineticEnergy(double mass, double velocity) {
+
+        System.out.println(" mass is " + mass + " velocity is " + velocity);// tester mass and velocity 
+
+        kineticEnergy = (mass * (.5) * (Math.pow(velocity, 2)));
+        //System.out.println(" The kinetic energy is " + kineticEnergy); // tester for kineticEnergy
+        //System.out.println(kineticEnergy);
+        return kineticEnergy;
+    }
+}
